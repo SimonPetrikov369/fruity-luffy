@@ -15,8 +15,12 @@ class Scene3 extends Phaser.Scene{
     this.background.setOrigin(0.28,0);
     player = this.add.sprite(config.width / 2, config.height - 50, 'lupi');
     player.setDisplaySize(this.background.displayWidth / 15, this.background.displayHeight / 15);
-    player.setOrigin(0.5, 0.5);
-    this.add.existing(player);
+    player.setOrigin(0.5, 0.75);
+    this.physics.add.existing(player);
+    player.setInteractive({ draggable: true });
+    this.input.on('drag', (pointer, gameObject, dragX, dragY) => {
+      gameObject.x = dragX;
+    });
     const playerCollider = this.physics.add.overlap(player, fruits, this.collectFruit, null, this);
 
     const fontSize = Math.min(config.width, config.height) * 0.07;
@@ -39,7 +43,6 @@ class Scene3 extends Phaser.Scene{
     var centerWidth = config.width * 0.75;
     var startPosition = (config.width - centerWidth) / 2;
     var randomX = Phaser.Math.Between(startPosition, startPosition + centerWidth);
-    // const image = this.add.image(randomX, 0, randomImageKey);
     const fruit = fruits.create(randomX, 0, randomImageKey);
     fruit.setDisplaySize(this.background.displayWidth / 15, this.background.displayHeight / 15);
 
