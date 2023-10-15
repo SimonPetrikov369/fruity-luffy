@@ -3,11 +3,14 @@ class Scene1 extends Phaser.Scene{
     super("bootGame")
   }
   preload(){
-    this.load.image("background", "assets/images/background.jpg");
+    this.load.sprite
+    this.load.image("background", "assets/images/background.jpg", {frameWidth: 16, frameHeight: 16});
     this.load.image("fruit1", "assets/images/gomugomu.png");
     this.load.image("fruit2", "assets/images/kagekage.png");
     this.load.image("fruit3", "assets/images/meramera.png");
     this.load.image("fruit4", "assets/images/opeope.png");
+    this.load.image("lupi", "assets/images/luffy.png");
+
   }
   create() {
     this.scene.start('play');
