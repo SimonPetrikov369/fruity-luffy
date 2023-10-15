@@ -27,7 +27,7 @@ class Scene3 extends Phaser.Scene{
       fontSize: fontSize + 'px',
       fill: '#fff',
     });
-    this.livesText = this.add.text(16, 16 + this.scoreText.displayHeight, 'Lives: ❤️❤️❤️', {
+    this.livesText = this.add.text(16, 16 + this.scoreText.displayHeight, 'Lives: 3', {
       fontSize: fontSize + 'px',
       fill: '#fff',
     });
@@ -64,10 +64,7 @@ class Scene3 extends Phaser.Scene{
       score++;
     } else {
       console.log('Lost a life');
-      lives--;
-      if (lives <= 0) {
-        lives = 3; // Reset lives as an example, you can implement game over logic
-      }
+      lives = Math.max(0, lives - 0.5);
     }
 
     fruit.destroy();
@@ -75,35 +72,8 @@ class Scene3 extends Phaser.Scene{
   }
 
   updateScoreAndLives() {
-    // Calculate the number of full hearts (❤️) based on the score
-    const fullHearts = Math.floor(score);
-    const halfHeart = (score - fullHearts) >= 0.5 ? '🩹' : ''; // Display half heart (🩹) when needed
-
-    // Create a string with full hearts and a possible half heart
-    const heartsString = 'Lives: ' + '❤️'.repeat(fullHearts) + halfHeart;
 
     this.scoreText.setText('Score: ' + score);
-    this.livesText.setText(heartsString + ' or ' + lives);
+    this.livesText.setText('Lives: ' + lives);
   }
-  // collectFruit(player, fruit) {
-  //   console.log('Collision detected');
-  //   console.log('Fruit texture key:', fruit.texture.key);
-  
-  //   if (fruit.texture.key === 'fruit1') {
-  //     console.log('Collected fruit1');
-  //     score++;
-  //   } else {
-  //     console.log('Lost a life');
-  //     lives--;
-  //     if (lives <= 0) {
-  //       lives = 3; // Reset lives as an example, you can implement game over logic
-  //     }
-  //   }
-  //   fruit.destroy();
-  //   this.updateScoreAndLives();
-  // }
-  // updateScoreAndLives() {
-  //   this.scoreText.setText('Score: ' + score);
-  //   this.livesText.setText('Lives: ' + lives);
-  // }
 }
