@@ -2,9 +2,9 @@ let fruits;
 let player;
 let score = 0;
 let lives = 3;
-class Scene3 extends Phaser.Scene{
+class playGame extends Phaser.Scene{
   constructor(){
-    super("play")
+    super("playGame")
   }
   create(){
     fruits = this.physics.add.group()
@@ -31,7 +31,7 @@ class Scene3 extends Phaser.Scene{
       fontSize: fontSize + 'px',
       fill: '#fff',
     });
-    this.imagesArray = ['fruit1', 'fruit2', 'fruit3', 'fruit4', 'lupi'];
+    this.imagesArray = ['fruit1', 'fruit2', 'fruit3', 'fruit4'];
     this.time.addEvent({
       delay: Phaser.Math.Between(1000, 3000), // Random delay between 1 to 3 seconds.
       callback: this.createRandomImage,
