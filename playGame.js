@@ -34,7 +34,8 @@ class playGame extends Phaser.Scene{
       fontSize: fontSize + 'px',
       fill: '#fff',
     });
-    this.imagesArray = ['fruit1', 'fruit2', 'fruit3', 'fruit4'];
+    // this.imagesArray = ['fruit1', 'fruit2', 'fruit3', 'fruit4'];
+    this.imagesArray = ['food1','food2','food3','food4','food5','cherry-pie-1','cherry-pie-2','cherry-pie-3'];
     this.time.addEvent({
       delay: Phaser.Math.Between(300, 700),
       callback: this.createRandomImage,
@@ -61,8 +62,8 @@ class playGame extends Phaser.Scene{
     })
   }
   collectFruit(player, fruit) {
-    if (fruit.texture.key === 'fruit1') {
-      console.log('Collected fruit1');
+    if (fruit.texture.key.includes('food')) {
+      console.log('Collected: ' + fruit.texture.key);
       score++;
       if(score >= 5){
         this.scene.start('gameWin', {score, lives});

@@ -7,8 +7,8 @@ class howtoPlay extends Phaser.Scene{
     this.background.setDisplaySize(this.sys.game.config.width * 2, config.height);
     this.background.setOrigin(0.28,0);
     const steps = [
-      "1. Collect the correct fruits to score points.",
-      "2. Avoid collecting the wrong fruits to save lives.",
+      "1. Collect the correct meals to score points.",
+      "2. Avoid collecting the wrong fruits (cherry pies).",
       "3. Reach a high score (50 points) to win the game!",
     ];
     const fontSize = Math.min(config.width, config.height) * 0.07;

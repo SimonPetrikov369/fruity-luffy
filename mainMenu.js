@@ -4,11 +4,14 @@ class mainMenu extends Phaser.Scene{
   }
   preload(){
     this.load.image("background", "assets/images/background.jpg", {frameWidth: 16, frameHeight: 16});
-    this.load.image("fruit1", "assets/images/gomugomu.png");
-    this.load.image("fruit2", "assets/images/kagekage.png");
-    this.load.image("fruit3", "assets/images/meramera.png");
-    this.load.image("fruit4", "assets/images/opeope.png");
-    this.load.image("lupi", "assets/images/luffy.png");
+    this.load.image("cherry-pie-1", "assets/images/cherry-pie-1.png");
+    this.load.image("cherry-pie-2", "assets/images/cherry-pie-2.png");
+    this.load.image("cherry-pie-3", "assets/images/cherry-pie-3.png");
+    this.load.image("food1", "assets/images/food1.png");
+    this.load.image("food2", "assets/images/food2.png");
+    this.load.image("food3", "assets/images/food3.png");
+    this.load.image("food4", "assets/images/food4.png");
+    this.load.image("food5", "assets/images/food5.png");
 
   }
   create() {
