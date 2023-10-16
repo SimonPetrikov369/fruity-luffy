@@ -12,17 +12,38 @@ class mainMenu extends Phaser.Scene{
 
   }
   create() {
-    this.scene.start('playGame');
-    // const startButton = this.add.text(config.width / 2, config.height / 2, 'Start', {
-    //   fontSize: '32px',
-    //   fill: '#fff',
-    // });
-    // startButton.setOrigin(0.5);
+    this.background = this.add.image(0,0, "background");
+    this.background.setDisplaySize(this.sys.game.config.width * 2, config.height);
+    this.background.setOrigin(0.28,0);
+    const fontSize = Math.min(config.width, config.height) * 0.07;
+    const startButton = this.add.text(config.width / 2, config.height / 2, 'Start', {
+      fontSize: fontSize+'px',
+      fontStyle: 'bold',
+      fill: '#fff',
+      stroke: '#000',
+      strokeThickness: 10,
+    });
+    startButton.setOrigin(0.5);
 
-    // startButton.setInteractive();
+    startButton.setInteractive();
 
-    // startButton.on('pointerdown', () => {
-    //   this.scene.start('playGame');
-    // });
+    startButton.on('pointerdown', () => {
+      this.scene.start('playGame', {score: 0, lives: 3});
+    });
+    const howtoButton = this.add.text(config.width / 2, config.height / 2 + 100 , 'How to Play', {
+      fontSize: fontSize+'px',
+      fontStyle: 'bold',
+      fill: '#fff',
+      stroke: '#000',
+      strokeThickness: 10,
+    });
+    howtoButton.setInteractive();
+
+    howtoButton.on('pointerdown', () => {
+      this.scene.start('howtoPlay');
+    });
+    startButton.setOrigin(0.5);
+    howtoButton.setOrigin(0.5);
+    startButton.setInteractive();
   }
 }

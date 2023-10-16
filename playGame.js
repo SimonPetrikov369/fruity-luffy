@@ -1,10 +1,14 @@
 let fruits;
 let player;
-let score = 0;
-let lives = 3;
+let score;
+let lives;
 class playGame extends Phaser.Scene{
   constructor(){
     super("playGame")
+  }
+  init(data) {
+    score = data.score;
+    lives = data.lives;
   }
   create(){
     fruits = this.physics.add.group()
@@ -17,7 +21,6 @@ class playGame extends Phaser.Scene{
     this.physics.add.existing(player);
     player.setInteractive({ draggable: true });
     this.input.on('drag', (pointer, gameObject, dragX, dragY) => {
-      
       gameObject.x = dragX;
     });
     this.physics.add.overlap(player, fruits, this.collectFruit, null, this);
@@ -33,7 +36,7 @@ class playGame extends Phaser.Scene{
     });
     this.imagesArray = ['fruit1', 'fruit2', 'fruit3', 'fruit4'];
     this.time.addEvent({
-      delay: Phaser.Math.Between(1000, 3000), // Random delay between 1 to 3 seconds.
+      delay: Phaser.Math.Between(300, 700),
       callback: this.createRandomImage,
       callbackScope: this,
       loop: true,
@@ -48,11 +51,10 @@ class playGame extends Phaser.Scene{
     var randomX = Phaser.Math.Between(startPosition, startPosition + centerWidth);
     const fruit = fruits.create(randomX, 0, randomImageKey);
     fruit.setDisplaySize(this.background.displayWidth / 15, this.background.displayHeight / 15);
-
     this.tweens.add({
       targets: fruit,
       y: config.height,
-      duration: Phaser.Math.Between(3000, 5000),
+      duration: Phaser.Math.Between(1000, 3000),
       onComplete: () => {
         fruit.destroy()
       }
@@ -65,14 +67,15 @@ class playGame extends Phaser.Scene{
     } else {
       console.log('Lost a life');
       lives = Math.max(0, lives - 0.5);
+      if(lives <= 0){
+        this.scene.start('gameOver', {score, lives});
+      }
     }
-
     fruit.destroy();
     this.updateScoreAndLives();
   }
 
   updateScoreAndLives() {
-
     this.scoreText.setText('Score: ' + score);
     this.livesText.setText('Lives: ' + lives);
   }
