@@ -64,6 +64,9 @@ class playGame extends Phaser.Scene{
     if (fruit.texture.key === 'fruit1') {
       console.log('Collected fruit1');
       score++;
+      if(score >= 5){
+        this.scene.start('gameWin', {score, lives});
+      }
     } else {
       console.log('Lost a life');
       lives = Math.max(0, lives - 0.5);

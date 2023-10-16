@@ -1,7 +1,7 @@
 
-class gameOver extends Phaser.Scene{
+class gameWin extends Phaser.Scene{
   constructor(){
-    super("gameOver")
+    super("gameWin")
   }
   init(data) {
     this.score = data.score;
@@ -14,13 +14,14 @@ class gameOver extends Phaser.Scene{
     this.background.setOrigin(0.28,0);
     const fontSize = Math.min(config.width, config.height) * 0.07;
     
-    const gameOverText = this.add.text(config.width / 2, config.height / 2, `Game Over!`, { 
+    const gameOverText = this.add.text(config.width / 2, config.height / 2, `Congratulations!`, { 
       fontSize: fontSize +'px', 
-      fill: '#eb3434',
+      fill: '#34eb34',
       fontStyle: 'bold',
       stroke: '#000',
       strokeThickness: 10, 
     });
+    
     const scoreText = this.add.text(config.width / 2, (config.height / 2) + 100 , `Score: ${this.score}`, { 
       fontSize: fontSize +'px', 
       fill: '#fff',
@@ -54,5 +55,6 @@ class gameOver extends Phaser.Scene{
     });
     gameOverText.setOrigin(0.5);
     scoreText.setOrigin(0.5);
+    // livesText.setOrigin(0.5);
   }
 }
