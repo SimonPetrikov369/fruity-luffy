@@ -6,13 +6,14 @@ const config = {
   backgroundColor: 0x000000,
   scene: [ mainMenu, howtoPlay, playGame, gameOver, gameWin],
   physics: {
-    default: 'arcade', // You can use a different physics engine if needed
+    default: 'arcade', 
     arcade: {
-      gravity: { y: 0 }, // Adjust gravity as needed
+      gravity: { y: 0 },
     },
   },
 }
-window.onload = function(){
-  var game = new Phaser.Game(config);
-}
+var game = new Phaser.Game(config);
+// window.onload = function(){
+  
+// }
 
