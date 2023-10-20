@@ -15,9 +15,9 @@ class mainMenu extends Phaser.Scene{
     this.load.image("food5", "assets/images/food5.png");
   }
   create() {
-    this.background = this.add.image(0,0, "background");
-    this.background.setDisplaySize(this.sys.game.config.width * 2, config.height);
-    this.background.setOrigin(0.28,0);
+    // this.background = this.add.image(0,0, "background");
+    // this.background.setDisplaySize(this.sys.game.config.width * 2, config.height);
+    // this.background.setOrigin(0.28,0);
     const fontSize = Math.min(config.width, config.height) * 0.07;
     const startButton = this.add.text(config.width / 2, config.height / 2, 'Start', {
       fontSize: fontSize+'px',

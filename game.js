@@ -1,7 +1,7 @@
 const config = {
   width: window.innerWidth,
   height: window.innerHeight,
-  backgroundColor: 0x000000,
+  transparent: true, 
   scene: [ mainMenu, howtoPlay, playGame, gameOver, gameWin],
   physics: {
     default: 'arcade', 
