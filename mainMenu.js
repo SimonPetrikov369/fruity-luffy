@@ -3,7 +3,7 @@ class mainMenu extends Phaser.Scene{
     super("bootGame")
   }
   preload(){
-    this.load.image("background", "assets/images/background.jpg", {frameWidth: 16, frameHeight: 16});
+    this.load.image("background", "assets/images/background.jpg");
     this.load.image("lupi", "assets/images/luffy.png");
     this.load.image("cherry-pie-1", "assets/images/cherry-pie-1.png");
     this.load.image("cherry-pie-2", "assets/images/cherry-pie-2.png");
