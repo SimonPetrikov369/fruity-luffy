@@ -15,7 +15,6 @@ class mainMenu extends Phaser.Scene{
     this.load.image("food5", "assets/images/food5.png");
   }
   create() {
-    console.log("two"); //?
     this.background = this.add.image(0,0, "background");
     this.background.setDisplaySize(this.sys.game.config.width * 2, config.height);
     this.background.setOrigin(0.28,0);
